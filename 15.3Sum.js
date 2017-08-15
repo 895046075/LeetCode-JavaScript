@@ -9,3 +9,23 @@ A solution set is:
   [-1, -1, 2]
 ]
 */
+
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var threeSum = function(nums) {
+	var a = [];
+	var result = [];
+	for (var i=0; i<nums.length; i++) {
+		for (var j=i+1; j<nums.length; j++) {
+			for (var k=j+1; k<nums.length; k++) {
+				if (nums[i] + nums[j] + nums[k] === 0) {
+					a = [nums[i],nums[j],nums[k]];
+					result.push(a);
+				}
+			}
+		}
+	}
+	return result;
+};
