@@ -27,8 +27,11 @@ function randomArray(min,max,n){
 }
 
 //测试用例
-var testArray = randomArray(3,200,50);
-insertiomSort(testArray);
+var testArray = randomArray(3,2000,500);
+var start = Date.now();
+insertionSort(testArray);
+var end = Date.now();
+console.log("time need" + ' ' + (end - start));
 for(var k=0; k<testArray.length; k++){
 	console.log(testArray[k]);
 }
