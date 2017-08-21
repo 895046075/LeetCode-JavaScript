@@ -1,24 +1,39 @@
-function selectionSort(array) {
-	for(var i=0; i<array.length; i++) {
-		var minIndex = i;
-		for(var j=i+1; j<array.length; j++) {
-			if(array[j] < array[minIndex]) {
+function selectionSort(arr){
+	var minIndex;
+	var len = arr.length;
+	for(var i=0; i<len-1; i++){
+		 minIndex = i;
+		for(var j=i+1; j<len; j++){
+			if(arr[j] < arr[minIndex]){
 				minIndex = j;
 			}
-			var item;
-			item = arr[i];
-			arr[i] = arr[minIndex];
-			arr[minIndex] = item;
 		}
+		swap(i,minIndex,arr);
 	}
-	return array;
+	return arr;
+}
+//swap函数
+function swap(i,j,arr){
+	var temp;
+	temp = arr[i];
+	arr[i] = arr[j];
+	arr[j] = temp;
+}
+
+
+//生成随机数组函数
+function randomArray(min,max,n) {
+	var arr = [];
+	for(var i=0; i<n; i++){
+		rand = parseInt(Math.random() * (max - min + 1) + min);
+		arr.push(rand);
+	}
+	return arr;
 }
 
 //测试用例
-var arr = [3,6,2,7,1,5,9];
-
-selectionSort(arr);
-
-for(var k=0; k<arr.length; k++) {
-	console.log(arr[k]);
+var testArray = randomArray(3,200,50);
+selectionSort(testArray);
+for(var k=0; k<testArray.length; k++) {
+	console.log(testArray[k]);
 }
