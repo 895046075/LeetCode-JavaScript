@@ -2,18 +2,13 @@ function insertionSort(arr) {
 	var len = arr.length;
 	for(var i=1; i<len; i++){
 		//寻找arr[i]插入的位置
-		for(var j=i; j>0 && arr[j]<arr[j-1]; j--){
-			swap(j,j-1,arr);
+		var temp = arr[i];
+		var j;
+		for( j=i; j>0 && arr[j-1]>temp; j--){
+			arr[j] = arr[j-1];
 		}
+		arr[j] = temp;
 	}
-}
-
-//swap函数
-function swap(i,j,arr){
-	var temp;
-	temp = arr[i];
-	arr[i] = arr[j];
-	arr[j] = temp;
 }
 
 //生成随机数组函数
