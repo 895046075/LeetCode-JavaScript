@@ -1,4 +1,4 @@
-function insertionSort(arr) {
+function insertionSort(arr){
 	var len = arr.length;
 	for(var i=1; i<len; i++){
 		//寻找arr[i]插入的位置
