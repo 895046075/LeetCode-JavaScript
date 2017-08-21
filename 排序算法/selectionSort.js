@@ -22,7 +22,7 @@ function swap(i,j,arr){
 
 
 //生成随机数组函数
-function randomArray(min,max,n) {
+function randomArray(min,max,n){
 	var arr = [];
 	for(var i=0; i<n; i++){
 		rand = parseInt(Math.random() * (max - min + 1) + min);
@@ -34,6 +34,6 @@ function randomArray(min,max,n) {
 //测试用例
 var testArray = randomArray(3,200,50);
 selectionSort(testArray);
-for(var k=0; k<testArray.length; k++) {
+for(var k=0; k<testArray.length; k++){
 	console.log(testArray[k]);
 }
