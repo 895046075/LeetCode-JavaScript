@@ -1,12 +1,14 @@
 /*
-Source : https://leetcode.com/problems/add-binary/description/
-Given two binary strings,
-return their sum(also a binary string).
+https://leetcode-cn.com/problems/add-binary/
+给你两个二进制字符串，返回它们的和（用二进制表示）。
+输入为 非空 字符串且只包含数字 1 和 0。
+示例 1:
+输入: a = "11", b = "1"
+输出: "100"
 
-For example,
-a = "11"
-b = "1"
-Return "100".
+示例 2:
+输入: a = "1010", b = "1011"
+输出: "10101"
 */
 
 /**
@@ -15,19 +17,20 @@ Return "100".
  * @return {string}
  */
 
-var addBinary = function(a, b) {
+let addBinary = function(a, b) {
 	a = a.split('').reverse();
 	b = b.split('').reverse();
 
-	var c = [];
-	var add = 0;
+	let c = [];
+	let add = 0;
+	let len = Math.max(a.length, b.length)
 
-	for (var i = 0, len = Math.max(a.length, b.length); i < len; i++) {
-		var sum = (a[i] === undefined ? 0 : Number(a[i])) + (b[i] === undefined ? 0 : Number(b[i])) + add;
+	for (let i = 0; i < len; i++) {
+		let sum = (a[i] === undefined ? 0 : Number(a[i])) + (b[i] === undefined ? 0 : Number(b[i])) + add;
 		c[i] = sum & 1;
 		if (sum >= 2)
 			add = 1;
-		elseadd = 0;
+		else add = 0;
 	}
 
 	if (add)
